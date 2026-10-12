@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Daphy_Designs — Nail Care &amp; Fashion Products Kenya</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shop | Daphy_Designs — Nail Care & Fashion Products Kenya" />
+  <meta property="og:description" content="Shop premium press-on nails, nail care kits, cuticle oils, fashion accessories, and digital style guides. Delivered across Kenya." />
+  <meta property="og:image" content="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ─── Shop Page-specific styles ──────────────────────── */
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #C98D97 100%);
+      padding: 96px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-inner { position: relative; z-index: 1; }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep { color: rgba(255,255,255,0.45); font-size: 0.75rem; }
+    .breadcrumb-current { color: var(--accent); font-weight: 500; }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.15;
+    }
+    .page-hero-sub {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* DELIVERY BANNER */
+    .delivery-banner {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      text-align: center;
+      padding: 14px 24px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .delivery-banner span { color: var(--accent); font-weight: 700; }
+
+    /* PRODUCTS SECTION */
+    #products {
+      padding: 80px 0 96px;
+      background: var(--cream);
+    }
+    #products .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    #products .section-label {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    #products h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      margin: 0;
+    }
+
+    /* PRODUCT GRID */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+
+    /* PRODUCT CARD */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(183,110,121,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(183,110,121,0.18);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      color: var(--white);
+    }
+    .product-badge.best-seller { background: var(--primary); }
+    .product-badge.popular     { background: #8A4F58; }
+    .product-badge.new-in      { background: var(--accent); color: var(--charcoal); }
+    .product-badge.digital     { background: #6C5CE7; }
+    .product-badge.sale        { background: #E74C3C; }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+      display: block;
+    }
+    .product-card:hover .product-image img {
+      transform: scale(1.07);
+    }
+
+    /* Quick-view overlay on image */
+    .product-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(183,110,121,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .product-card:hover .product-image-overlay { opacity: 1; }
+    .product-image-overlay span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2px solid var(--white);
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      pointer-events: none;
+    }
+
+    .product-body {
+      padding: 20px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0 0 8px;
+      line-height: 1.35;
+    }
+
+    .product-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 16px;
+      flex: 1;
+    }
+
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    /* Add to Cart button on card */
+    .product-card .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      width: 100%;
+      letter-spacing: 0.02em;
+    }
+    .product-card .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(183,110,121,0.35);
+    }
+    .product-card .btn-primary:active { transform: translateY(0); }
+
+    /* ─── CART DRAWER ──────────────────────────────────────── */
+    #cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30,30,30,0.50);
+      z-index: 8000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #cart-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 100vw);
+      height: 100%;
+      background: var(--white);
+      z-index: 8100;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 40px rgba(183,110,121,0.18);
+      transform: translateX(100%);
+      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px 20px;
+      border-bottom: 1.5px solid var(--blush);
+      flex-shrink: 0;
+    }
+    .cart-drawer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    #cart-close {
+      background: var(--blush);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+    #cart-close:hover { background: var(--primary); color: var(--white); }
+
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 28px;
+    }
+
+    #cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 200px;
+      gap: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+    #cart-empty .cart-empty-icon {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    /* Cart items list rendered by JS */
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: 1px solid rgba(183,110,121,0.10);
+    }
+    .cart-item img {
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .cart-item-name {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cart-item-price {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .qty-dec, .qty-inc {
+      background: var(--white);
+      border: 1.5px solid rgba(183,110,121,0.25);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .qty-dec:hover, .qty-inc:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      transition: color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .cart-item-remove:hover { color: #e74c3c; }
+
+    .cart-drawer-footer {
+      border-top: 1.5px solid var(--blush);
+      padding: 20px 28px 28px;
+      flex-shrink: 0;
+      background: var(--white);
+    }
+    #cart-total-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .cart-total-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    #cart-total {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .cart-checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 24px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 12px;
+    }
+    .cart-checkout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(183,110,121,0.40);
+    }
+    .cart-continue-link {
+      display: block;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+    }
+    .cart-continue-link:hover { color: var(--primary); }
+
+    /* ─── PAYMENT INFO SECTION ───────────────────────────── */
+    .payment-info {
+      background: var(--white);
+      padding: 72px 0;
+      border-top: 1px solid var(--blush);
+    }
+    .payment-info .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .payment-info .section-label {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .payment-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .payment-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 768px) {
+      .payment-info-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .payment-info-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px 32px;
+      text-align: center;
+      border: 1px solid rgba(183,110,121,0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .payment-info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(183,110,121,0.12);
+    }
+    .payment-info-icon {
+      font-size: 2.8rem;
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .payment-info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0 0 12px;
+    }
+    .payment-info-card p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── Floating cart open trigger (nav cart badge) ─────── */
+    .cart-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      margin-left: 4px;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* ─── Reveal animation ────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       SHARED NAVBAR (active: Shop)
+  ════════════════════════════════════════════ -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">💅 Daphy_Designs</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="tutorials.html">Tutorials</a></li>
+        <li>
+          <a href="shop.html" class="active" aria-current="page">Shop
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="booking.html" class="btn-book btn-primary">Book Now</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+        <button class="drawer-close" aria-label="Close menu">✕</button>
+        <ul class="drawer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="shop.html" class="active" aria-current="page">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="drawer-book-btn">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         1. PAGE HERO
+    ════════════════════════════════════════════ -->
+    <section class="page-hero" aria-label="Shop page header">
+      <div class="container page-hero-inner">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="breadcrumb-current" aria-current="page">Shop</span>
+        </nav>
+
+        <h1>Shop Daphy_Designs</h1>
+        <p class="page-hero-sub">
+          Premium nail care products, fashion accessories, and digital style guides —
+          delivered across Kenya.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         2. DELIVERY BANNER
+    ════════════════════════════════════════════ -->
+    <div class="delivery-banner" role="status" aria-live="polite">
+      🚚 Free Delivery in <span>Nairobi CBD</span> for orders over
+      <span>KES 3,000</span> · Countrywide delivery available
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         3. PRODUCT GRID
+    ════════════════════════════════════════════ -->
+    <section id="products" aria-labelledby="products-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Curated for You</span>
+          <h2 id="products-heading">Our Products</h2>
+        </div>
+
+        <div class="products-grid">
+
+          <!-- Product 1: Press-On Nail Set -->
+          <article
+            class="product-card reveal"
+            data-id="p1"
+            data-name="Press-On Nail Set"
+            data-price="800"
+            data-image="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-badge best-seller">Best Seller</div>
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Press-on nail set with 24 salon-quality designs, Nairobi nail art"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Press-On Nail Set</h3>
+              <p class="product-desc">
+                Salon-quality press-on nails in 24 designs. Includes glue tabs and application kit.
+                Easy 15-minute application.
+              </p>
+              <div class="product-price">KES 800</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Press-On Nail Set to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 2: Complete Nail Care Kit -->
+          <article
+            class="product-card reveal"
+            data-id="p2"
+            data-name="Complete Nail Care Kit"
+            data-price="1500"
+            data-image="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-badge popular">Popular</div>
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional complete nail care kit for home manicures in Kenya"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Complete Nail Care Kit</h3>
+              <p class="product-desc">
+                Professional-grade kit: cuticle pusher, nail file, buffer, clippers, and cuticle oil.
+                Perfect for home manicures.
+              </p>
+              <div class="product-price">KES 1,500</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Complete Nail Care Kit to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 3: Argan Cuticle Oil -->
+          <article
+            class="product-card reveal"
+            data-id="p3"
+            data-name="Argan Cuticle Oil"
+            data-price="400"
+            data-image="https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Argan cuticle oil with Kenyan rosehip extracts for nail care"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Argan Cuticle Oil</h3>
+              <p class="product-desc">
+                Nourishing cuticle oil with Kenyan argan and rosehip extracts. Daily use strengthens
+                nails and hydrates the cuticle area.
+              </p>
+              <div class="product-price">KES 400</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Argan Cuticle Oil to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 4: Nail Art Brush Set -->
+          <article
+            class="product-card reveal"
+            data-id="p4"
+            data-name="Nail Art Brush Set (12pcs)"
+            data-price="600"
+            data-image="https://images.pexels.com/photos/3065170/pexels-photo-3065170.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-badge new-in">New</div>
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/3065170/pexels-photo-3065170.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional 12-piece nail art brush set for Ankara-inspired designs"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Nail Art Brush Set (12pcs)</h3>
+              <p class="product-desc">
+                Professional nail art brushes: liner, fan, dotting, and detail brushes.
+                Ideal for Ankara-inspired designs.
+              </p>
+              <div class="product-price">KES 600</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Nail Art Brush Set to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 5: Fashion Accessories Bundle -->
+          <article
+            class="product-card reveal"
+            data-id="p5"
+            data-name="Fashion Accessories Bundle"
+            data-price="1200"
+            data-image="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Kenyan-inspired fashion accessories bundle with earrings and bracelet"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Fashion Accessories Bundle</h3>
+              <p class="product-desc">
+                Curated accessory bundle: statement earrings, beaded bracelet, and silk scrunchie.
+                Inspired by Kenyan artisanship.
+              </p>
+              <div class="product-price">KES 1,200</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Fashion Accessories Bundle to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 6: Digital Style Guide PDF -->
+          <article
+            class="product-card reveal"
+            data-id="p6"
+            data-name="Digital Style Guide PDF"
+            data-price="300"
+            data-image="https://images.pexels.com/photos/775522/pexels-photo-775522.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-badge digital">Digital</div>
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/775522/pexels-photo-775522.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Kenyan fashion and nail trend digital style guide 2025"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Digital Style Guide PDF</h3>
+              <p class="product-desc">
+                Downloadable 40-page Kenyan fashion &amp; nail trend guide for 2025.
+                Instant delivery to your email.
+              </p>
+              <div class="product-price">KES 300</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Digital Style Guide PDF to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 7: Gel Top Coat -->
+          <article
+            class="product-card reveal"
+            data-id="p7"
+            data-name="Gel Top Coat (15ml)"
+            data-price="500"
+            data-image="https://images.pexels.com/photos/1603805/pexels-photo-1603805.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/1603805/pexels-photo-1603805.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="UV LED gel top coat 15ml for high-shine nail finish"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Gel Top Coat (15ml)</h3>
+              <p class="product-desc">
+                High-shine, no-wipe gel top coat for ultra-glossy finish. UV/LED curable.
+                Extends gel colour life by up to 2 weeks.
+              </p>
+              <div class="product-price">KES 500</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Gel Top Coat to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+          <!-- Product 8: Nail Sticker Set -->
+          <article
+            class="product-card reveal"
+            data-id="p8"
+            data-name="Nail Sticker Set (200pcs)"
+            data-price="350"
+            data-image="https://images.pexels.com/photos/4210372/pexels-photo-4210372.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          >
+            <div class="product-badge sale">Sale</div>
+            <div class="product-image">
+              <img
+                src="https://images.pexels.com/photos/4210372/pexels-photo-4210372.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="200-piece floral geometric nail sticker set in 10 design themes"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+              <div class="product-image-overlay" aria-hidden="true">
+                <span>Quick View</span>
+              </div>
+            </div>
+            <div class="product-body">
+              <h3 class="product-name">Nail Sticker Set (200pcs)</h3>
+              <p class="product-desc">
+                Mix of floral, geometric, and abstract nail stickers. Self-adhesive, easy to apply,
+                available in 10 design themes.
+              </p>
+              <div class="product-price">KES 350</div>
+              <button
+                class="btn-primary add-to-cart"
+                aria-label="Add Nail Sticker Set to cart"
+              >
+                Add to Cart 🛒
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /products-grid -->
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         5. PAYMENT INFO SECTION
+    ════════════════════════════════════════════ -->
+    <section class="payment-info" aria-labelledby="payment-info-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Why Shop With Us</span>
+          <h2 id="payment-info-heading">Safe, Fast &amp; Convenient</h2>
+        </div>
+
+        <div class="payment-info-grid">
+
+          <div class="payment-info-card reveal">
+            <div class="payment-info-icon" aria-hidden="true">📱</div>
+            <h3>M-Pesa Accepted</h3>
+            <p>
+              Pay securely via M-Pesa Paybill or Till Number. We accept Lipa Na M-Pesa,
+              card payments, and pay-on-delivery for Nairobi orders.
+            </p>
+          </div>
+
+          <div class="payment-info-card reveal">
+            <div class="payment-info-icon" aria-hidden="true">🚚</div>
+            <h3>Fast Kenya Delivery</h3>
+            <p>
+              Same-day delivery within Nairobi CBD for orders placed before 2 PM.
+              Countrywide delivery via G4S and Sendy within 2–4 business days.
+            </p>
+          </div>
+
+          <div class="payment-info-card reveal">
+            <div class="payment-info-icon" aria-hidden="true">🔄</div>
+            <h3>Easy Returns</h3>
+            <p>
+              Not satisfied? Return unopened products within 7 days for a full refund or
+              exchange. Digital products are non-refundable once downloaded.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       4. CART DRAWER
+  ════════════════════════════════════════════ -->
+  <!-- Overlay -->
+  <div id="cart-overlay" role="presentation" aria-hidden="true"></div>
+
+  <!-- Drawer -->
+  <aside
+    id="cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Shopping cart"
+  >
+    <div class="cart-drawer-header">
+      <h2 class="cart-drawer-title">Your Cart</h2>
+      <button id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-drawer-body">
+      <!-- Empty state -->
+      <div id="cart-empty" role="status">
+        <span class="cart-empty-icon" aria-hidden="true">🛒</span>
+        Your cart is empty.<br />Start shopping!
+      </div>
+
+      <!-- Items rendered by JS -->
+      <ul id="cart-items" aria-label="Cart items" aria-live="polite"></ul>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div id="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span id="cart-total">KES 0</span>
+      </div>
+      <a
+        href="booking.html"
+        class="cart-checkout-btn"
+        aria-label="Proceed to checkout"
+      >
+        Proceed to Checkout →
+      </a>
+      <button
+        class="cart-continue-link"
+        id="cart-continue"
+        aria-label="Continue shopping"
+      >
+        Continue Shopping
+      </button>
+    </div>
+  </aside>
+
+  <!-- ════════════════════════════════════════════
+       SHARED FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">💅 Daphy_Designs</a>
+          <p class="footer-tagline">Where Kenyan Elegance Meets Artistry</p>
+          <p class="footer-address">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kilimani, Nairobi, Kenya
+          </p>
+          <p class="footer-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.5 17l1.42 1.42"/></svg>
+            +254 700 000 000
+          </p>
+
+          <div class="footer-socials" aria-label="Social media links">
+            <!-- Instagram -->
+            <a href="https://instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/254700000000" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Chat with Daphy_Designs on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Classic Manicure</a></li>
+            <li><a href="services.html">Gel Manicure</a></li>
+            <li><a href="services.html">Nail Art</a></li>
+            <li><a href="services.html">Classic Pedicure</a></li>
+            <li><a href="services.html">Spa Pedicure</a></li>
+            <li><a href="services.html">Fashion Consulting</a></li>
+            <li><a href="services.html">Bridal Package</a></li>
+            <li><a href="services.html">Home Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter + M-Pesa -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-newsletter-sub">
+            Get nail trends, style tips &amp; exclusive offers in your inbox.
+          </p>
+          <form class="footer-newsletter-form" novalidate aria-label="Footer newsletter signup">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              aria-label="Email for newsletter"
+              required
+            />
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+
+          <div class="mpesa-badge" aria-label="M-Pesa accepted">
+            <span class="mpesa-badge-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span>M-Pesa Accepted</span>
+          </div>
+
+          <div class="footer-hours">
+            <h5>Opening Hours</h5>
+            <p>Mon – Sat: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 10:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2025 Daphy_Designs · Kilimani, Nairobi · All rights reserved</p>
+        <div class="footer-bottom-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       FLOATING ELEMENTS
+  ════════════════════════════════════════════ -->
+
+  <!-- WhatsApp float button -->
+  <a
+    href="https://wa.me/254700000000?text=Hi%20Daphy_Designs!%20I%27d%20like%20to%20order%20something%20from%20your%20shop."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile booking bar -->
+  <div class="mobile-booking-bar" role="navigation" aria-label="Mobile quick actions">
+    <a href="booking.html" class="mobile-bar-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Now
+    </a>
+    <a
+      href="https://wa.me/254700000000"
+      class="mobile-bar-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Daphy_Designs on WhatsApp"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <!-- Shop-specific: wire up cart drawer open/close and "Continue Shopping" button -->
+  <script>
+    (function () {
+      // Open cart drawer when clicking the cart badge in the nav
+      document.addEventListener('DOMContentLoaded', function () {
+        var cartCount  = document.getElementById('cart-count');
+        var cartDrawer = document.getElementById('cart-drawer');
+        var cartClose  = document.getElementById('cart-close');
+        var cartOverlay = document.getElementById('cart-overlay');
+        var cartContinue = document.getElementById('cart-continue');
+
+        function openCart() {
+          if (!cartDrawer) return;
+          cartDrawer.classList.add('open');
+          cartOverlay.classList.add('active');
+          cartOverlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+          if (!cartDrawer) return;
+          cartDrawer.classList.remove('open');
+          cartOverlay.classList.remove('active');
+          cartOverlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        // Clicking the cart badge/count opens drawer
+        if (cartCount) {
+          cartCount.closest('a').addEventListener('click', function (e) {
+            e.preventDefault();
+            openCart();
+          });
+        }
+
+        if (cartClose)    cartClose.addEventListener('click', closeCart);
+        if (cartOverlay)  cartOverlay.addEventListener('click', closeCart);
+        if (cartContinue) cartContinue.addEventListener('click', closeCart);
+
+        // ESC key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && cartDrawer && cartDrawer.classList.contains('open')) {
+            closeCart();
+          }
+        });
+      });
+    }());
+  </script>
+
+  <!-- Shared JS -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
