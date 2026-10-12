@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorials & Blog | Daphy_Designs — Nail Art Tutorials Nairobi Kenya</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tutorials & Blog | Daphy_Designs — Nail Art Tutorials Nairobi Kenya" />
+  <meta property="og:description" content="Step-by-step nail art tutorials, beauty tips, and fashion trends from Nairobi's top nail artists at Daphy_Designs." />
+  <meta property="og:image" content="https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ─── Tutorials page–specific styles ─── */
+
+    /* ── Hero ── */
+    .tutorials-page-hero {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 60%, #f0d8db 100%);
+      padding: 128px 0 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tutorials-page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 65% 35%, rgba(183,110,121,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .tutorials-page-hero .hero-blob-deco {
+      position: absolute;
+      top: -80px;
+      right: -120px;
+      width: 420px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .tutorials-page-hero .hero-blob-deco-2 {
+      position: absolute;
+      bottom: -60px;
+      left: -100px;
+      width: 320px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .breadcrumb a:hover { color: var(--primary-dark); }
+    .breadcrumb span { color: var(--muted); }
+    .tutorials-page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .tutorials-page-hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tutorials-page-hero p {
+      font-family: 'Poppins', sans-serif;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Featured Video ── */
+    #featured-tutorial {
+      background: var(--cream);
+      padding: 80px 0 64px;
+    }
+    #featured-tutorial .section-label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .featured-video-card {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(183,110,121,0.22);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .featured-video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 36px 80px rgba(183,110,121,0.3);
+    }
+    .featured-video-ratio {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+    .featured-video-ratio img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .featured-video-card:hover .featured-video-ratio img {
+      transform: scale(1.04);
+    }
+    .featured-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(10,6,6,0.85) 0%,
+        rgba(30,10,15,0.55) 45%,
+        rgba(0,0,0,0.18) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 32px;
+    }
+    .featured-tag {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-full);
+      padding: 5px 18px;
+      margin-bottom: 24px;
+    }
+    .play-btn-gold {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #c09a28);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--white);
+      cursor: pointer;
+      box-shadow: 0 0 0 10px rgba(212,175,55,0.2), 0 0 0 20px rgba(212,175,55,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 28px;
+      line-height: 1;
+      padding: 0;
+    }
+    .play-btn-gold:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 14px rgba(212,175,55,0.25), 0 0 0 28px rgba(212,175,55,0.1);
+    }
+    .featured-video-info {
+      text-align: center;
+      max-width: 680px;
+    }
+    .featured-video-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 12px;
+      line-height: 1.25;
+    }
+    .featured-video-info p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      color: rgba(255,249,245,0.75);
+      margin: 0 0 24px;
+    }
+    .btn-watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(183,110,121,0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-watch:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(183,110,121,0.5);
+    }
+
+    /* ── Tutorials Grid layout ── */
+    #tutorials-grid {
+      background: var(--cream);
+      padding: 0 0 80px;
+    }
+    #tutorials-grid .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    #tutorials-grid .section-header .section-label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    #tutorials-grid .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .tutorials-layout {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .tutorials-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Tutorial cards grid ── */
+    .tutorials-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .tutorials-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tutorial-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .tutorial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(183,110,121,0.18);
+    }
+    .tutorial-card-thumb {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+    }
+    .tutorial-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .tutorial-card:hover .tutorial-card-thumb img {
+      transform: scale(1.06);
+    }
+    .tutorial-card-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.25);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tutorial-card:hover .tutorial-card-play {
+      opacity: 1;
+    }
+    .tutorial-card-play span {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .tutorial-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .tutorial-tag {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      align-self: flex-start;
+    }
+    .tutorial-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+      line-height: 1.35;
+    }
+    .tutorial-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .tutorial-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tutorial-meta .level-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      background: var(--blush);
+      color: var(--primary-dark);
+    }
+    .btn-watch-sm {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+      margin-top: auto;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    .btn-watch-sm:hover {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border-color: transparent;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(183,110,121,0.3);
+    }
+
+    /* ── Blog section ── */
+    .blog-section {
+      margin-top: 64px;
+    }
+    .blog-section .section-header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .blog-section .section-header .section-label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .blog-section .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(183,110,121,0.18);
+    }
+    .blog-card-thumb {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .blog-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card-thumb img {
+      transform: scale(1.05);
+    }
+    .blog-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .blog-date {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .blog-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .blog-card-body p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+      flex: 1;
+    }
+    .btn-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease, gap 0.3s ease;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .btn-read-more:hover {
+      color: var(--primary-dark);
+      gap: 8px;
+    }
+
+    /* ── Sidebar ── */
+    .tutorials-sidebar {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .sidebar-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .sidebar-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0 0 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blush);
+    }
+    .sidebar-categories {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sidebar-categories li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(183,110,121,0.1);
+      transition: color 0.3s ease;
+    }
+    .sidebar-categories li:last-child a {
+      border-bottom: none;
+    }
+    .sidebar-categories li a:hover {
+      color: var(--primary);
+    }
+    .sidebar-categories li a .cat-count {
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: var(--blush);
+      color: var(--primary-dark);
+      padding: 2px 9px;
+      border-radius: var(--radius-full);
+    }
+    .sidebar-popular-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar-popular-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .sidebar-popular-item img {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .sidebar-popular-item span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+      transition: color 0.3s ease;
+    }
+    .sidebar-popular-item:hover span {
+      color: var(--primary);
+    }
+    .sidebar-newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar-newsletter-form p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .sidebar-newsletter-form input[type="email"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid rgba(183,110,121,0.25);
+      border-radius: var(--radius-sm);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+    }
+    .sidebar-newsletter-form input[type="email"]:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(183,110,121,0.15);
+    }
+    .sidebar-newsletter-form button {
+      width: 100%;
+      padding: 11px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .sidebar-newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(183,110,121,0.35);
+    }
+
+    /* ── Membership Banner ── */
+    .membership-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, #c4826e 40%, var(--accent) 100%);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .membership-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.06) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .membership-banner .banner-deco-1 {
+      position: absolute;
+      top: -40px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.1);
+      pointer-events: none;
+    }
+    .membership-banner .banner-deco-2 {
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+    .membership-banner .banner-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .membership-banner .banner-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .membership-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .membership-banner p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 8px;
+      line-height: 1.7;
+    }
+    .membership-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      margin: 0 0 28px !important;
+      display: block;
+    }
+    .btn-join-membership {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: var(--radius-full);
+      background: var(--white);
+      color: var(--primary-dark);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      transition: all 0.3s ease;
+    }
+    .btn-join-membership:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      background: var(--cream);
+    }
+    .membership-benefits {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 32px;
+      padding: 0;
+      list-style: none;
+    }
+    .membership-benefits li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+    }
+    .membership-benefits li .check {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ── Floating deco ── */
+    .float-deco {
+      position: absolute;
+      pointer-events: none;
+      animation: floatBob 6s ease-in-out infinite;
+    }
+    @keyframes floatBob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-14px); }
+    }
+    .float-deco-1 {
+      top: 200px;
+      right: 3%;
+      font-size: 2.4rem;
+      opacity: 0.22;
+      animation-delay: 0s;
+    }
+    .float-deco-2 {
+      top: 360px;
+      left: 2%;
+      font-size: 1.8rem;
+      opacity: 0.18;
+      animation-delay: 1.5s;
+    }
+    .float-deco-3 {
+      top: 580px;
+      right: 5%;
+      font-size: 1.5rem;
+      opacity: 0.15;
+      animation-delay: 3s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       SHARED NAVBAR
+  ════════════════════════════════════════════ -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">💅 Daphy_Designs</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="tutorials.html" class="active" aria-current="page">Tutorials</a></li>
+        <li>
+          <a href="shop.html">Shop
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="booking.html" class="btn-book btn-primary">Book Now</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+        <button class="drawer-close" aria-label="Close menu">✕</button>
+        <ul class="drawer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="tutorials.html" class="active">Tutorials</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="drawer-book-btn">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         1. PAGE HERO
+    ════════════════════════════════════════════ -->
+    <section class="tutorials-page-hero" aria-labelledby="tutorials-hero-title">
+
+      <!-- Decorative blobs -->
+      <svg class="hero-blob-deco" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M320,240 C360,290 340,370 270,390 C200,410 110,380 70,310 C30,240 60,140 130,90 C200,40 290,60 330,130 C360,180 280,190 320,240Z" fill="#B76E79"/>
+      </svg>
+      <svg class="hero-blob-deco-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M240,180 C270,218 255,278 202,293 C149,308 82,285 53,232 C22,180 45,105 98,68 C150,31 218,45 248,98 C270,135 210,143 240,180Z" fill="#D4AF37"/>
+      </svg>
+
+      <div class="container" style="position:relative; z-index:1;">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Tutorials</span>
+        </nav>
+
+        <h1 id="tutorials-hero-title">
+          Learn <span class="gradient-text">Nail Art</span> from the Best in Kenya
+        </h1>
+        <p>Step-by-step tutorials, tips, and trends from Nairobi's top nail artists.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         2. FEATURED VIDEO TUTORIAL
+    ════════════════════════════════════════════ -->
+    <section id="featured-tutorial" aria-labelledby="featured-tutorial-title">
+      <div class="container">
+
+        <span class="section-label">✦ Don't Miss This</span>
+
+        <div class="featured-video-card" tabindex="0" role="button" aria-label="Play featured tutorial: Ankara-Inspired Nail Art Full Step-by-Step Guide">
+          <div class="featured-video-ratio">
+            <img
+              src="https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Ankara-inspired nail art design, Nairobi nail tutorial"
+              loading="lazy"
+            />
+            <div class="featured-video-overlay">
+              <span class="featured-tag">Featured Tutorial</span>
+              <button class="play-btn-gold" aria-label="Play tutorial video">&#9654;</button>
+              <div class="featured-video-info">
+                <h2 id="featured-tutorial-title">Ankara-Inspired Nail Art: Full Step-by-Step Guide</h2>
+                <p>45 min &nbsp;·&nbsp; Nail Art &nbsp;·&nbsp; Advanced</p>
+                <a href="#" class="btn-watch">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                  Watch Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         3. TUTORIALS GRID + SIDEBAR
+    ════════════════════════════════════════════ -->
+    <section id="tutorials-grid" aria-labelledby="tutorials-grid-title">
+      <div class="container">
+
+        <div class="section-header">
+          <span class="section-label">✦ Expand Your Skills</span>
+          <h2 id="tutorials-grid-title">Latest Tutorials</h2>
+        </div>
+
+        <div class="tutorials-layout">
+
+          <!-- ── MAIN CONTENT ── -->
+          <div class="tutorials-main">
+
+            <!-- Tutorial cards -->
+            <div class="tutorials-cards-grid" role="list">
+
+              <!-- 1. Perfect French Manicure at Home -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="French manicure tutorial step-by-step, Nairobi"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Manicure</span>
+                  <h3>Perfect French Manicure at Home</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      20 min
+                    </span>
+                    <span class="level-badge">Beginner</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch Perfect French Manicure tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+              <!-- 2. Gel Nails Application & Removal -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Gel nail application and removal guide Nairobi"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Gel</span>
+                  <h3>Gel Nails: Application &amp; Removal Guide</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      35 min
+                    </span>
+                    <span class="level-badge">Intermediate</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch Gel Nails tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+              <!-- 3. Nairobi Street Style Colour Blocking -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/775522/pexels-photo-775522.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Nairobi street style colour blocking fashion tutorial"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Fashion</span>
+                  <h3>Nairobi Street Style: Colour Blocking</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      25 min
+                    </span>
+                    <span class="level-badge">Beginner</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch Nairobi Street Style tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+              <!-- 4. 3D Floral Nail Art -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="3D floral nail art tutorial advanced Nairobi"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Nail Art</span>
+                  <h3>3D Floral Nail Art Tutorial</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      50 min
+                    </span>
+                    <span class="level-badge">Advanced</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch 3D Floral Nail Art tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+              <!-- 5. Ombre Nails Sunset Kenya Look -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/4210372/pexels-photo-4210372.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Ombre nails sunset Kenya look tutorial"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Nail Art</span>
+                  <h3>Ombre Nails: Sunset Kenya Look</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      30 min
+                    </span>
+                    <span class="level-badge">Intermediate</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch Ombre Nails tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+              <!-- 6. Pedicure Masterclass: Spa at Home -->
+              <article class="tutorial-card" role="listitem">
+                <div class="tutorial-card-thumb">
+                  <img
+                    src="https://images.pexels.com/photos/3373716/pexels-photo-3373716.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                    alt="Pedicure masterclass spa at home Kenya tutorial"
+                    loading="lazy"
+                  />
+                  <div class="tutorial-card-play" aria-hidden="true">
+                    <span>&#9654;</span>
+                  </div>
+                </div>
+                <div class="tutorial-card-body">
+                  <span class="tutorial-tag">Pedicure</span>
+                  <h3>Pedicure Masterclass: Spa at Home</h3>
+                  <div class="tutorial-meta">
+                    <span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                      40 min
+                    </span>
+                    <span class="level-badge">Beginner</span>
+                  </div>
+                  <a href="#" class="btn-watch-sm" aria-label="Watch Pedicure Masterclass tutorial">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Tutorial
+                  </a>
+                </div>
+              </article>
+
+            </div><!-- /tutorials-cards-grid -->
+
+            <!-- ── BLOG SECTION ── -->
+            <div class="blog-section" aria-labelledby="blog-section-title">
+
+              <div class="section-header">
+                <span class="section-label">✦ Read &amp; Inspire</span>
+                <h2 id="blog-section-title">From the Blog</h2>
+              </div>
+
+              <div class="blog-grid" role="list">
+
+                <!-- Blog 1 -->
+                <article class="blog-card" role="listitem">
+                  <div class="blog-card-thumb">
+                    <img
+                      src="https://images.pexels.com/photos/4677022/pexels-photo-4677022.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Trending nail art designs in Nairobi 2025"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="blog-card-body">
+                    <time class="blog-date" datetime="2025-01-15">Jan 15, 2025</time>
+                    <h3>Top 10 Nail Trends in Nairobi for 2025</h3>
+                    <p>From Ankara-inspired patterns to holographic chrome, discover what's setting Nairobi's nail scene on fire this year.</p>
+                    <a href="#" class="btn-read-more" aria-label="Read article: Top 10 Nail Trends in Nairobi for 2025">
+                      Read More
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="blog-card" role="listitem">
+                  <div class="blog-card-thumb">
+                    <img
+                      src="https://images.pexels.com/photos/1603805/pexels-photo-1603805.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Long-lasting manicure tips from Nairobi nail artists"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="blog-card-body">
+                    <time class="blog-date" datetime="2025-01-10">Jan 10, 2025</time>
+                    <h3>How to Make Your Manicure Last 3 Weeks</h3>
+                    <p>Pro tips from our Nairobi nail artists on prep, application, and aftercare to extend the life of your manicure.</p>
+                    <a href="#" class="btn-read-more" aria-label="Read article: How to Make Your Manicure Last 3 Weeks">
+                      Read More
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="blog-card" role="listitem">
+                  <div class="blog-card-thumb">
+                    <img
+                      src="https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Ankara fabric meets nail art fusion trend Kenya"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="blog-card-body">
+                    <time class="blog-date" datetime="2025-01-05">Jan 5, 2025</time>
+                    <h3>Ankara Meets Nail Art: The Fusion Trend</h3>
+                    <p>How Kenyan nail artists are drawing inspiration from traditional Ankara fabric to create breathtaking wearable art.</p>
+                    <a href="#" class="btn-read-more" aria-label="Read article: Ankara Meets Nail Art The Fusion Trend">
+                      Read More
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+                <!-- Blog 4 -->
+                <article class="blog-card" role="listitem">
+                  <div class="blog-card-thumb">
+                    <img
+                      src="https://images.pexels.com/photos/3693904/pexels-photo-3693904.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Bridal nail trends 2025 Nairobi brides"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="blog-card-body">
+                    <time class="blog-date" datetime="2024-12-28">Dec 28, 2024</time>
+                    <h3>Bridal Nail Guide: What Nairobi Brides Are Wearing in 2025</h3>
+                    <p>From classic white lace to bold Maasai beadwork-inspired designs, our guide to the hottest bridal nail trends.</p>
+                    <a href="#" class="btn-read-more" aria-label="Read article: Bridal Nail Guide Nairobi Brides 2025">
+                      Read More
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                  </div>
+                </article>
+
+              </div><!-- /blog-grid -->
+            </div><!-- /blog-section -->
+
+          </div><!-- /tutorials-main -->
+
+          <!-- ── SIDEBAR ── -->
+          <aside class="tutorials-sidebar" aria-label="Tutorials sidebar">
+
+            <!-- Categories -->
+            <div class="sidebar-box">
+              <h4>Categories</h4>
+              <ul class="sidebar-categories" role="list">
+                <li>
+                  <a href="#">Nail Art <span class="cat-count">24</span></a>
+                </li>
+                <li>
+                  <a href="#">Manicure <span class="cat-count">18</span></a>
+                </li>
+                <li>
+                  <a href="#">Pedicure <span class="cat-count">12</span></a>
+                </li>
+                <li>
+                  <a href="#">Fashion <span class="cat-count">9</span></a>
+                </li>
+                <li>
+                  <a href="#">Gel Nails <span class="cat-count">15</span></a>
+                </li>
+                <li>
+                  <a href="#">Bridal <span class="cat-count">7</span></a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Popular Posts -->
+            <div class="sidebar-box">
+              <h4>Popular Posts</h4>
+              <ul class="sidebar-popular-list" role="list">
+                <li>
+                  <a href="#" class="sidebar-popular-item" aria-label="Popular post: Ankara-Inspired Nail Art Guide">
+                    <img
+                      src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Ankara-inspired nail art thumbnail"
+                      loading="lazy"
+                    />
+                    <span>Ankara-Inspired Nail Art: Full Step-by-Step Guide</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-popular-item" aria-label="Popular post: Ankara Meets Nail Art Fusion Trend">
+                    <img
+                      src="https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Ankara fabric nail art fusion thumbnail"
+                      loading="lazy"
+                    />
+                    <span>Ankara Meets Nail Art: The Fusion Trend</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-popular-item" aria-label="Popular post: Nairobi Street Style Colour Blocking">
+                    <img
+                      src="https://images.pexels.com/photos/775522/pexels-photo-775522.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Nairobi street style fashion thumbnail"
+                      loading="lazy"
+                    />
+                    <span>Nairobi Street Style: Colour Blocking</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-popular-item" aria-label="Popular post: Bridal Nail Guide Nairobi 2025">
+                    <img
+                      src="https://images.pexels.com/photos/3693904/pexels-photo-3693904.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      alt="Bridal nail trends 2025 thumbnail"
+                      loading="lazy"
+                    />
+                    <span>Bridal Nail Guide: Nairobi Brides 2025</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-box">
+              <h4>Newsletter</h4>
+              <form class="sidebar-newsletter-form newsletter-form" novalidate aria-label="Sidebar newsletter signup">
+                <p>Get weekly nail tips in your inbox</p>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  aria-label="Email address for newsletter"
+                  required
+                />
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+
+          </aside><!-- /tutorials-sidebar -->
+
+        </div><!-- /tutorials-layout -->
+      </div><!-- /container -->
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         4. MEMBERSHIP CTA BANNER
+    ════════════════════════════════════════════ -->
+    <section class="membership-banner" aria-labelledby="membership-title">
+      <div class="banner-deco-1" aria-hidden="true"></div>
+      <div class="banner-deco-2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="banner-inner">
+          <span class="banner-icon" aria-hidden="true">🎓</span>
+          <h2 id="membership-title">Join Daphy Tutorial Membership</h2>
+          <p>Get unlimited access to all tutorials, printable guides, and monthly live sessions with our nail artists.</p>
+          <span class="membership-price">KES 500/month — Cancel anytime</span>
+          <a href="#" class="btn-join-membership">
+            Join Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+
+          <ul class="membership-benefits" role="list">
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              Unlimited tutorial access
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              Monthly live Q&amp;A
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              Printable design guides
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              Members-only discounts
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       SHARED FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">💅 Daphy_Designs</a>
+          <p class="footer-tagline">Where Kenyan Elegance Meets Artistry</p>
+          <p class="footer-address">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kilimani, Nairobi, Kenya
+          </p>
+          <p class="footer-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.5 17l1.42 1.42"/></svg>
+            +254 700 000 000
+          </p>
+
+          <div class="footer-socials" aria-label="Social media links">
+            <!-- Instagram -->
+            <a href="https://instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/254700000000" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Chat with Daphy_Designs on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Classic Manicure</a></li>
+            <li><a href="services.html">Gel Manicure</a></li>
+            <li><a href="services.html">Nail Art</a></li>
+            <li><a href="services.html">Classic Pedicure</a></li>
+            <li><a href="services.html">Spa Pedicure</a></li>
+            <li><a href="services.html">Fashion Consulting</a></li>
+            <li><a href="services.html">Bridal Package</a></li>
+            <li><a href="services.html">Home Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter + M-Pesa -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-newsletter-sub">Get nail trends, style tips &amp; exclusive offers in your inbox.</p>
+          <form class="footer-newsletter-form" novalidate aria-label="Footer newsletter signup">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" required />
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+
+          <div class="mpesa-badge" aria-label="M-Pesa accepted">
+            <span class="mpesa-badge-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span>M-Pesa Accepted</span>
+          </div>
+
+          <div class="footer-hours">
+            <h5>Opening Hours</h5>
+            <p>Mon – Sat: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 10:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2025 Daphy_Designs · Kilimani, Nairobi · All rights reserved</p>
+        <div class="footer-bottom-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       FLOATING ELEMENTS
+  ════════════════════════════════════════════ -->
+
+  <!-- Decorative floating icons -->
+  <span class="float-deco float-deco-1" aria-hidden="true">💅</span>
+  <span class="float-deco float-deco-2" aria-hidden="true">✦</span>
+  <span class="float-deco float-deco-3" aria-hidden="true">🌸</span>
+
+  <!-- WhatsApp float button -->
+  <a
+    href="https://wa.me/254700000000?text=Hi%20Daphy_Designs!"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile booking bar -->
+  <div class="mobile-booking-bar" role="navigation" aria-label="Mobile quick actions">
+    <a href="booking.html" class="mobile-bar-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Now
+    </a>
+    <a
+      href="https://wa.me/254700000000"
+      class="mobile-bar-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Daphy_Designs on WhatsApp"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <!-- Shared JS -->
+  <script src="js/script.js" defer></script>
+
+</body>
+</html>
