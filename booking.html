@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | Daphy_Designs — Nairobi Nail Art & Fashion</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Book Appointment | Daphy_Designs" />
+  <meta property="og:description" content="Book your manicure, pedicure, nail art, or fashion consultation at Daphy_Designs in Kilimani, Nairobi. Pay securely via M-Pesa or card." />
+  <meta property="og:image" content="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ─── Page-specific styles ─────────────────────────────── */
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #C98D97 100%);
+      padding: 96px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 20px;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb-sep {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.75rem;
+    }
+    .breadcrumb-current { color: var(--accent); font-weight: 500; }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--white);
+      margin: 0 0 16px;
+      line-height: 1.15;
+    }
+    .page-hero-sub {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* BOOKING SECTION */
+    #booking {
+      padding: 80px 0 96px;
+      background: var(--cream);
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: 0 8px 30px rgba(183,110,121,0.10);
+    }
+    @media (max-width: 640px) {
+      .form-card { padding: 28px 20px; }
+    }
+
+    /* FIELDSETS */
+    .booking-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0 0 40px;
+    }
+    .booking-fieldset:last-of-type { margin-bottom: 0; }
+    .fieldset-legend {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--blush);
+      width: 100%;
+    }
+    .fieldset-legend-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* FORM GROUPS */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-group:last-child { margin-bottom: 0; }
+    .form-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .form-label .required-star {
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--cream);
+      border: 1.5px solid rgba(183,110,121,0.20);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      width: 100%;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--muted); }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--primary);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(183,110,121,0.15);
+    }
+    .form-input:invalid:not(:placeholder-shown),
+    .form-select:invalid:not(:placeholder-shown) {
+      border-color: #e74c3c;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7A7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; min-height: 96px; }
+
+    /* PAYMENT OPTIONS */
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 480px) {
+      .payment-options { grid-template-columns: 1fr; }
+    }
+    .payment-option {
+      position: relative;
+    }
+    .payment-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .payment-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 18px 12px;
+      background: var(--cream);
+      border: 2px solid rgba(183,110,121,0.18);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      text-align: center;
+      user-select: none;
+    }
+    .payment-label .pay-icon { font-size: 1.6rem; line-height: 1; }
+    .payment-option input[type="radio"]:checked + .payment-label {
+      border-color: var(--primary);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(183,110,121,0.15);
+      color: var(--primary);
+    }
+    .payment-option input[type="radio"]:focus-visible + .payment-label {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .payment-label:hover {
+      border-color: var(--primary);
+      background: var(--white);
+    }
+
+    /* PAYMENT DETAILS */
+    .payment-details-box {
+      background: var(--blush);
+      border: 1.5px solid rgba(183,110,121,0.20);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-top: 4px;
+      transition: opacity 0.3s ease;
+    }
+    .payment-details-box[hidden] { display: none; }
+    .mpesa-till {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin: 0 0 16px;
+      line-height: 1.6;
+    }
+    .mpesa-till strong {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .card-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 480px) {
+      .card-row { grid-template-columns: 1fr; }
+    }
+
+    /* TRUST BADGES */
+    .trust-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 32px 0 36px;
+      padding: 20px 24px;
+      background: var(--blush);
+      border-radius: var(--radius);
+      border: 1px solid rgba(183,110,121,0.15);
+    }
+    .trust-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* SUBMIT BUTTON */
+    .btn-large {
+      width: 100%;
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn-large:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(183,110,121,0.40);
+    }
+    .btn-large:active { transform: translateY(-1px); }
+    .btn-large.loading {
+      opacity: 0.75;
+      pointer-events: none;
+    }
+    .btn-large .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .btn-large.loading .spinner { display: block; }
+    .btn-large.loading .btn-text { opacity: 0.85; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* BOOKING SUMMARY CARD */
+    .booking-summary {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(183,110,121,0.12);
+    }
+    .booking-summary.sticky {
+      position: sticky;
+      top: 100px;
+    }
+    .summary-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      padding: 28px 32px;
+      text-align: center;
+    }
+    .summary-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 4px;
+    }
+    .summary-header-sub {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+    .summary-body {
+      padding: 28px 32px;
+    }
+    .summary-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--blush);
+    }
+    .summary-row:last-of-type { border-bottom: none; }
+    .summary-key {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .summary-val {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-align: right;
+    }
+    .summary-divider {
+      border: none;
+      border-top: 2px dashed rgba(183,110,121,0.20);
+      margin: 16px 0;
+    }
+    .summary-total-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0 0;
+    }
+    .summary-total-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .summary-total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .summary-note {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 8px 0 0;
+      font-style: italic;
+    }
+    .summary-brand-block {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--blush);
+      text-align: center;
+    }
+    .summary-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .summary-brand-detail {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+
+    /* SUCCESS MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30,30,30,0.65);
+      backdrop-filter: blur(6px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+    @media (max-width: 540px) {
+      .modal-card { padding: 40px 24px; }
+    }
+    .modal-checkmark {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      display: block;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      margin: 0 0 16px;
+    }
+    .modal-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .modal-text-accent {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+      background: var(--blush);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .modal-btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(183,110,121,0.35);
+    }
+    .modal-close-btn {
+      background: none;
+      border: 1.5px solid rgba(183,110,121,0.25);
+      color: var(--muted);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .modal-close-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .modal-x-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--blush);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .modal-x-btn:hover { background: var(--primary); color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       SHARED NAVBAR
+  ════════════════════════════════════════════ -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">💅 Daphy_Designs</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="tutorials.html">Tutorials</a></li>
+        <li>
+          <a href="shop.html">Shop
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="booking.html" class="btn-book btn-primary active">Book Now</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+        <button class="drawer-close" aria-label="Close menu">✕</button>
+        <ul class="drawer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="drawer-book-btn active">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         1. PAGE HERO
+    ════════════════════════════════════════════ -->
+    <section class="page-hero" aria-label="Booking page header">
+      <div class="container page-hero-inner">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="breadcrumb-current" aria-current="page">Book Appointment</span>
+        </nav>
+
+        <h1>Book Your Appointment</h1>
+        <p class="page-hero-sub">
+          Choose your service, pick a time, and confirm with M-Pesa or card.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         2. BOOKING SECTION
+    ════════════════════════════════════════════ -->
+    <section id="booking" aria-labelledby="booking-heading">
+      <div class="container">
+        <h2 id="booking-heading" class="visually-hidden">Booking Form</h2>
+
+        <div class="booking-grid">
+
+          <!-- ── LEFT: BOOKING FORM ─────────────────── -->
+          <div class="form-card">
+            <form id="booking-form" action="#" method="POST" novalidate>
+
+              <!-- FIELDSET 1: Your Details -->
+              <fieldset class="booking-fieldset">
+                <legend class="fieldset-legend">
+                  <span class="fieldset-legend-num" aria-hidden="true">1</span>
+                  Your Details
+                </legend>
+
+                <div class="form-group">
+                  <label class="form-label" for="name">
+                    Full Name <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    required
+                    placeholder="e.g. Wanjiku Mwangi"
+                    autocomplete="name"
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="phone">
+                      Phone Number <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="form-input"
+                      required
+                      placeholder="+254 700 000 000"
+                      autocomplete="tel"
+                      pattern="[+]?[0-9\s\-()]{9,15}"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="email">
+                      Email Address <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      required
+                      placeholder="hello@example.com"
+                      autocomplete="email"
+                    />
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- FIELDSET 2: Choose Your Service -->
+              <fieldset class="booking-fieldset">
+                <legend class="fieldset-legend">
+                  <span class="fieldset-legend-num" aria-hidden="true">2</span>
+                  Choose Your Service
+                </legend>
+
+                <div class="form-group">
+                  <label class="form-label" for="service">
+                    Service <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <select id="service" name="service" class="form-select" required>
+                    <option value="" disabled selected>-- Select Service --</option>
+                    <option value="classic-mani" data-price="1500">Classic Manicure (KES 1,500)</option>
+                    <option value="gel-mani" data-price="2500">Gel Manicure (KES 2,500)</option>
+                    <option value="nail-art" data-price="3000">Nail Art (KES 3,000+)</option>
+                    <option value="classic-pedi" data-price="2000">Classic Pedicure (KES 2,000)</option>
+                    <option value="spa-pedi" data-price="3500">Spa Pedicure (KES 3,500)</option>
+                    <option value="fashion-consult" data-price="5000">Fashion Consultation (KES 5,000)</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="booking-date">
+                      Preferred Date <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      id="booking-date"
+                      name="booking-date"
+                      class="form-input"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="booking-time">
+                      Preferred Time <span class="required-star" aria-hidden="true">*</span>
+                    </label>
+                    <select id="booking-time" name="booking-time" class="form-select" required>
+                      <option value="" disabled selected>-- Select Time --</option>
+                      <option value="9:00 AM">9:00 AM</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="1:00 PM">1:00 PM</option>
+                      <option value="2:00 PM">2:00 PM</option>
+                      <option value="3:00 PM">3:00 PM</option>
+                      <option value="4:00 PM">4:00 PM</option>
+                      <option value="5:00 PM">5:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="location">
+                    Location <span class="required-star" aria-hidden="true">*</span>
+                  </label>
+                  <select id="location" name="location" class="form-select" required>
+                    <option value="salon" selected>Salon (Kilimani, Nairobi)</option>
+                    <option value="home">Home Visit (Surcharge applies)</option>
+                  </select>
+                </div>
+              </fieldset>
+
+              <!-- FIELDSET 3: Additional Notes -->
+              <fieldset class="booking-fieldset">
+                <legend class="fieldset-legend">
+                  <span class="fieldset-legend-num" aria-hidden="true">3</span>
+                  Additional Notes
+                </legend>
+
+                <div class="form-group">
+                  <label class="form-label" for="notes">Special Requests (optional)</label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    class="form-textarea"
+                    rows="3"
+                    placeholder="Any special requests, nail design ideas, or health conditions we should know about?"
+                  ></textarea>
+                </div>
+              </fieldset>
+
+              <!-- FIELDSET 4: Payment Method -->
+              <fieldset class="booking-fieldset">
+                <legend class="fieldset-legend">
+                  <span class="fieldset-legend-num" aria-hidden="true">4</span>
+                  Payment Method
+                </legend>
+
+                <div class="payment-options" role="group" aria-label="Choose payment method">
+
+                  <div class="payment-option">
+                    <input
+                      type="radio"
+                      id="pay-mpesa"
+                      name="payment-method"
+                      value="mpesa"
+                      checked
+                    />
+                    <label class="payment-label" for="pay-mpesa">
+                      <span class="pay-icon" aria-hidden="true">📱</span>
+                      M-Pesa
+                    </label>
+                  </div>
+
+                  <div class="payment-option">
+                    <input
+                      type="radio"
+                      id="pay-card"
+                      name="payment-method"
+                      value="card"
+                    />
+                    <label class="payment-label" for="pay-card">
+                      <span class="pay-icon" aria-hidden="true">💳</span>
+                      Card Payment
+                    </label>
+                  </div>
+
+                  <div class="payment-option">
+                    <input
+                      type="radio"
+                      id="pay-salon"
+                      name="payment-method"
+                      value="salon"
+                    />
+                    <label class="payment-label" for="pay-salon">
+                      <span class="pay-icon" aria-hidden="true">🏠</span>
+                      Pay at Salon
+                    </label>
+                  </div>
+
+                </div>
+
+                <!-- M-Pesa Details (visible by default) -->
+                <div id="mpesa-details" class="payment-details-box" role="region" aria-label="M-Pesa payment details">
+                  <p class="mpesa-till">
+                    Send payment to Till Number: <strong>123456</strong> (Daphy_Designs Ltd)
+                  </p>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="mpesa-ref">M-Pesa Transaction Code</label>
+                    <input
+                      type="text"
+                      id="mpesa-ref"
+                      name="mpesa-ref"
+                      class="form-input"
+                      placeholder="Enter M-Pesa transaction code (e.g. QGH7X83KPM)"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <!-- Card Details (hidden by default) -->
+                <div id="card-details" class="payment-details-box" hidden role="region" aria-label="Card payment details">
+                  <div class="form-group">
+                    <label class="form-label" for="card-number">Card Number</label>
+                    <input
+                      type="text"
+                      id="card-number"
+                      name="card-number"
+                      class="form-input"
+                      placeholder="1234 5678 9012 3456"
+                      maxlength="19"
+                      autocomplete="cc-number"
+                      inputmode="numeric"
+                    />
+                  </div>
+                  <div class="card-row">
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" for="card-expiry">Expiry Date</label>
+                      <input
+                        type="text"
+                        id="card-expiry"
+                        name="card-expiry"
+                        class="form-input"
+                        placeholder="MM/YY"
+                        maxlength="5"
+                        autocomplete="cc-exp"
+                        inputmode="numeric"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" for="card-cvv">CVV</label>
+                      <input
+                        type="text"
+                        id="card-cvv"
+                        name="card-cvv"
+                        class="form-input"
+                        placeholder="CVV"
+                        maxlength="4"
+                        autocomplete="cc-csc"
+                        inputmode="numeric"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+
+              <!-- TRUST BADGES -->
+              <div class="trust-badges-row" aria-label="Payment security assurances">
+                <div class="trust-badge-item">
+                  <span aria-hidden="true">🔒</span>
+                  Secure Payment
+                </div>
+                <div class="trust-badge-item">
+                  <span aria-hidden="true">📱</span>
+                  M-Pesa
+                </div>
+                <div class="trust-badge-item">
+                  <span aria-hidden="true">⚡</span>
+                  Instant Confirmation
+                </div>
+              </div>
+
+              <!-- SUBMIT -->
+              <button
+                type="submit"
+                id="submit-booking"
+                class="btn-primary btn-large"
+                aria-label="Confirm your booking"
+              >
+                <span class="btn-text">Confirm Booking</span>
+                <div class="spinner" aria-hidden="true"></div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" class="btn-arrow"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+            </form>
+          </div><!-- /form-card -->
+
+          <!-- ── RIGHT: BOOKING SUMMARY ─────────────── -->
+          <aside class="booking-summary sticky" aria-label="Booking summary">
+            <div class="summary-header">
+              <p class="summary-header-title">Booking Summary</p>
+              <p class="summary-header-sub">Live preview of your appointment</p>
+            </div>
+
+            <div class="summary-body">
+
+              <div class="summary-row">
+                <span class="summary-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  Service
+                </span>
+                <span class="summary-val" id="summary-service">Not selected</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Date
+                </span>
+                <span class="summary-val" id="summary-date">Not selected</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Time
+                </span>
+                <span class="summary-val" id="summary-time">Not selected</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Location
+                </span>
+                <span class="summary-val" id="summary-location">Salon</span>
+              </div>
+
+              <div class="summary-row">
+                <span class="summary-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                  Price
+                </span>
+                <span class="summary-val" id="summary-price">KES 0</span>
+              </div>
+
+              <hr class="summary-divider" />
+
+              <div class="summary-total-row">
+                <span class="summary-total-label">Total</span>
+                <strong class="summary-total-amount" id="summary-total">KES 0</strong>
+              </div>
+              <p class="summary-note">* Home visits include a travel surcharge</p>
+
+              <!-- Brand block -->
+              <div class="summary-brand-block">
+                <span class="summary-brand-name">💅 Daphy_Designs</span>
+                <p class="summary-brand-detail">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Kilimani, Nairobi, Kenya
+                </p>
+                <p class="summary-brand-detail">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.5 17l1.42 1.42"/></svg>
+                  +254 700 000 000
+                </p>
+              </div>
+
+            </div>
+          </aside><!-- /booking-summary -->
+
+        </div><!-- /booking-grid -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       3. SUCCESS MODAL
+  ════════════════════════════════════════════ -->
+  <div
+    id="success-modal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-card">
+
+      <!-- X close -->
+      <button class="modal-x-btn" id="modal-x-close" aria-label="Close confirmation dialog">✕</button>
+
+      <!-- Checkmark SVG -->
+      <svg class="modal-checkmark" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Success checkmark">
+        <circle cx="36" cy="36" r="36" fill="#22C55E" opacity="0.12"/>
+        <circle cx="36" cy="36" r="28" fill="#22C55E" opacity="0.18"/>
+        <circle cx="36" cy="36" r="20" fill="#22C55E"/>
+        <polyline points="24,36 32,44 48,28" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+
+      <h2 class="modal-title" id="modal-title">Booking Confirmed! 🎉</h2>
+
+      <p class="modal-text">
+        We've received your booking and will send a confirmation to your phone and email shortly.
+      </p>
+
+      <p class="modal-text-accent">
+        Your appointment details will be confirmed via SMS and WhatsApp within 15 minutes.
+      </p>
+
+      <div class="modal-actions">
+        <a href="index.html" class="modal-btn-primary">Return Home</a>
+        <button class="modal-close-btn" id="modal-close-btn" type="button">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       SHARED FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">💅 Daphy_Designs</a>
+          <p class="footer-tagline">Where Kenyan Elegance Meets Artistry</p>
+          <p class="footer-address">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kilimani, Nairobi, Kenya
+          </p>
+          <p class="footer-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.5 17l1.42 1.42"/></svg>
+            +254 700 000 000
+          </p>
+
+          <div class="footer-socials" aria-label="Social media links">
+            <!-- Instagram -->
+            <a href="https://instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/254700000000" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Chat with Daphy_Designs on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Classic Manicure</a></li>
+            <li><a href="services.html">Gel Manicure</a></li>
+            <li><a href="services.html">Nail Art</a></li>
+            <li><a href="services.html">Classic Pedicure</a></li>
+            <li><a href="services.html">Spa Pedicure</a></li>
+            <li><a href="services.html">Fashion Consulting</a></li>
+            <li><a href="services.html">Bridal Package</a></li>
+            <li><a href="services.html">Home Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter + M-Pesa -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-newsletter-sub">Get nail trends, style tips &amp; exclusive offers in your inbox.</p>
+          <form class="footer-newsletter-form" novalidate aria-label="Footer newsletter signup">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" required />
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+
+          <div class="mpesa-badge" aria-label="M-Pesa accepted">
+            <span class="mpesa-badge-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span>M-Pesa Accepted</span>
+          </div>
+
+          <div class="footer-hours">
+            <h5>Opening Hours</h5>
+            <p>Mon – Sat: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 10:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2025 Daphy_Designs · Kilimani, Nairobi · All rights reserved</p>
+        <div class="footer-bottom-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       FLOATING ELEMENTS
+  ════════════════════════════════════════════ -->
+
+  <!-- WhatsApp float button -->
+  <a
+    href="https://wa.me/254700000000?text=Hi%20Daphy_Designs!%20I%20would%20like%20to%20book%20an%20appointment."
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile booking bar -->
+  <div class="mobile-booking-bar" role="navigation" aria-label="Mobile quick actions">
+    <a href="booking.html" class="mobile-bar-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Now
+    </a>
+    <a
+      href="https://wa.me/254700000000"
+      class="mobile-bar-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Daphy_Designs on WhatsApp"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <!-- Shared JS -->
+  <script src="js/script.js" defer></script>
+
+  <!-- Booking page JS -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Set today as min date ─────────────────────── */
+      const dateInput = document.getElementById('booking-date');
+      if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm   = String(today.getMonth() + 1).padStart(2, '0');
+        const dd   = String(today.getDate()).padStart(2, '0');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      /* ── Service price map ─────────────────────────── */
+      const priceMap = {
+        'classic-mani':   1500,
+        'gel-mani':       2500,
+        'nail-art':       3000,
+        'classic-pedi':   2000,
+        'spa-pedi':       3500,
+        'fashion-consult':5000
+      };
+      const serviceNameMap = {
+        'classic-mani':   'Classic Manicure',
+        'gel-mani':       'Gel Manicure',
+        'nail-art':       'Nail Art',
+        'classic-pedi':   'Classic Pedicure',
+        'spa-pedi':       'Spa Pedicure',
+        'fashion-consult':'Fashion Consultation'
+      };
+      const HOME_SURCHARGE = 500;
+
+      /* ── DOM refs ──────────────────────────────────── */
+      const serviceEl  = document.getElementById('service');
+      const dateEl     = document.getElementById('booking-date');
+      const timeEl     = document.getElementById('booking-time');
+      const locationEl = document.getElementById('location');
+
+      const sumService  = document.getElementById('summary-service');
+      const sumDate     = document.getElementById('summary-date');
+      const sumTime     = document.getElementById('summary-time');
+      const sumLocation = document.getElementById('summary-location');
+      const sumPrice    = document.getElementById('summary-price');
+      const sumTotal    = document.getElementById('summary-total');
+
+      /* ── Format date for display ───────────────────── */
+      function formatDate(val) {
+        if (!val) return 'Not selected';
+        const [y, m, d] = val.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${d} ${months[parseInt(m,10) - 1]} ${y}`;
+      }
+
+      /* ── Format KES currency ───────────────────────── */
+      function formatKES(n) {
+        return 'KES ' + n.toLocaleString('en-KE');
+      }
+
+      /* ── Update summary card ───────────────────────── */
+      function updateSummary() {
+        const serviceVal  = serviceEl.value;
+        const dateVal     = dateEl.value;
+        const timeVal     = timeEl.value;
+        const locationVal = locationEl.value;
+
+        const serviceName  = serviceVal ? serviceNameMap[serviceVal] || serviceVal : 'Not selected';
+        const basePrice    = serviceVal ? (priceMap[serviceVal] || 0) : 0;
+        const isHome       = locationVal === 'home';
+        const surcharge    = isHome ? HOME_SURCHARGE : 0;
+        const total        = basePrice + surcharge;
+
+        sumService.textContent  = serviceName;
+        sumDate.textContent     = formatDate(dateVal);
+        sumTime.textContent     = timeVal || 'Not selected';
+        sumLocation.textContent = isHome ? 'Home Visit (+KES 500)' : 'Salon (Kilimani)';
+        sumPrice.textContent    = basePrice ? formatKES(basePrice) : 'KES 0';
+        sumTotal.textContent    = formatKES(total);
+      }
+
+      /* Attach summary listeners */
+      [serviceEl, dateEl, timeEl, locationEl].forEach(function (el) {
+        if (el) el.addEventListener('change', updateSummary);
+      });
+      updateSummary();
+
+      /* ── Payment method toggle ─────────────────────── */
+      const paymentRadios  = document.querySelectorAll('input[name="payment-method"]');
+      const mpesaDetails   = document.getElementById('mpesa-details');
+      const cardDetails    = document.getElementById('card-details');
+
+      function togglePaymentDetails() {
+        const selected = document.querySelector('input[name="payment-method"]:checked');
+        if (!selected) return;
+        const val = selected.value;
+
+        mpesaDetails.hidden = (val !== 'mpesa');
+        cardDetails.hidden  = (val !== 'card');
+      }
+
+      paymentRadios.forEach(function (radio) {
+        radio.addEventListener('change', togglePaymentDetails);
+      });
+      togglePaymentDetails(); /* Run on load */
+
+      /* ── Card number auto-format (groups of 4) ─────── */
+      const cardNumInput = document.getElementById('card-number');
+      if (cardNumInput) {
+        cardNumInput.addEventListener('input', function () {
+          let val = this.value.replace(/\D/g, '').slice(0, 16);
+          this.value = val.replace(/(.{4})/g, '$1 ').trim();
+        });
+      }
+
+      /* ── Card expiry auto-format MM/YY ─────────────── */
+      const cardExpiryInput = document.getElementById('card-expiry');
+      if (cardExpiryInput) {
+        cardExpiryInput.addEventListener('input', function () {
+          let val = this.value.replace(/\D/g, '').slice(0, 4);
+          if (val.length >= 3) {
+            val = val.slice(0,2) + '/' + val.slice(2);
+          }
+          this.value = val;
+        });
+      }
+
+      /* ── Form submission ───────────────────────────── */
+      const form        = document.getElementById('booking-form');
+      const submitBtn   = document.getElementById('submit-booking');
+      const btnText     = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+      const btnArrow    = submitBtn ? submitBtn.querySelector('.btn-arrow') : null;
+      const modal       = document.getElementById('success-modal');
+      const modalXClose = document.getElementById('modal-x-close');
+      const modalClose  = document.getElementById('modal-close-btn');
+
+      function openModal() {
+        if (!modal) return;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        /* Focus first interactive element */
+        const firstBtn = modal.querySelector('a, button');
+        if (firstBtn) firstBtn.focus();
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (submitBtn) submitBtn.focus();
+      }
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          /* Basic HTML5 validation */
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          /* Show loading state */
+          submitBtn.classList.add('loading');
+          if (btnText)  btnText.textContent = 'Processing…';
+          if (btnArrow) btnArrow.style.display = 'none';
+
+          /* Simulate async (1.8 s) */
+          setTimeout(function () {
+            submitBtn.classList.remove('loading');
+            if (btnText)  btnText.textContent = 'Confirm Booking';
+            if (btnArrow) btnArrow.style.display = '';
+            openModal();
+          }, 1800);
+        });
+      }
+
+      if (modalXClose) modalXClose.addEventListener('click', closeModal);
+      if (modalClose)  modalClose.addEventListener('click', closeModal);
+
+      /* Close modal on overlay click */
+      if (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) closeModal();
+        });
+      }
+
+      /* Close on Escape */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+    }());
+  </script>
+
+</body>
+</html>
