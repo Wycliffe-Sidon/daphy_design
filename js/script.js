@@ -139,6 +139,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
       hamburger.addEventListener('click', function () { toggleNav(); });
 
+      // Close button inside the drawer
+      var drawerCloseBtn = navDrawer.querySelector('.drawer-close');
+      if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', function () { toggleNav(true); });
+      }
+
       // Close on overlay click
       if (navOverlay) {
         navOverlay.addEventListener('click', function () { toggleNav(true); });

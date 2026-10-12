@@ -744,7 +744,8 @@ table {
   transition: opacity 0.35s ease;
 }
 
-.nav-overlay.open {
+.nav-overlay.open,
+.nav-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -3935,4 +3936,612 @@ table {
     font-size: 0.8em;
     color: #555;
   }
+}
+
+
+/* ============================================================
+   ALIGNMENT FIX — HTML class aliases
+   The HTML files use shorthand class names; these rules map
+   them to the correct layout styles so navbar and footer
+   render properly on all pages.
+   ============================================================ */
+
+/* ── Navbar inner wrapper ──────────────────────────────────── */
+/* Add flex layout & container to the <nav class="navbar"> element.
+   position/sticky lives on #main-header above it. */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--sp-3);
+  width: 100%;
+  height: 100%;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.01em;
+  transition: color var(--transition);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.nav-logo:hover { color: var(--primary-dark); }
+
+/* Nav links list */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  padding-bottom: 3px;
+  position: relative;
+  transition: color var(--transition);
+  text-decoration: none;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: var(--radius-full);
+  transition: width var(--transition);
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--primary);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* Cart count badge inside nav */
+.nav-links .cart-badge {
+  position: relative;
+  top: auto;
+  right: auto;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* Nav actions area (Book Now + hamburger) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.hamburger:hover { background: var(--blush); }
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Drawer close button */
+.drawer-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-bottom: var(--sp-2);
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.drawer-close:hover {
+  background: var(--blush);
+  color: var(--primary);
+}
+
+/* Drawer links list */
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-links li a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.drawer-links li a:hover,
+.drawer-links li a.active {
+  background: var(--blush);
+  color: var(--primary);
+}
+
+/* Book button inside drawer */
+.drawer-book-btn {
+  display: block;
+  text-align: center;
+  margin-top: var(--sp-3);
+  padding: 12px 24px !important;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white) !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Hide nav links & show hamburger on mobile */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-actions .btn-book { display: none; }
+}
+
+/* ── HEADER element wrapping the navbar ───────────────────── */
+/* The <nav class="navbar"> is already sticky via its own rule above.
+   The header wrapper just needs to exist as a block element. */
+#main-header {
+  display: block;
+}
+
+/* Scrolled state — apply to both nav and header for JS compatibility */
+#main-header.scrolled .navbar,
+.navbar.scrolled {
+  box-shadow: 0 4px 24px rgba(183, 110, 121, 0.18);
+  background: rgba(255, 249, 245, 0.97);
+}
+
+/* ── FOOTER aliases ───────────────────────────────────────── */
+.site-footer {
+  background-color: var(--charcoal);
+  color: #D0C8C0;
+  padding-top: var(--sp-7);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  gap: var(--sp-5);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--sp-2);
+  display: block;
+  text-decoration: none;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  color: #9A9088;
+  font-style: italic;
+  margin-bottom: var(--sp-2);
+  line-height: 1.6;
+}
+
+.footer-address,
+.footer-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: #9A9088;
+  margin-bottom: 6px;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--sp-3);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li a {
+  font-size: 0.88rem;
+  color: #9A9088;
+  text-decoration: none;
+  transition: color var(--transition), padding-left var(--transition);
+}
+.footer-links li a:hover {
+  color: var(--primary);
+  padding-left: 6px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  color: #D0C8C0;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.social-icon:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.footer-newsletter-sub {
+  font-size: 0.88rem;
+  color: #9A9088;
+  margin-bottom: var(--sp-2);
+  line-height: 1.6;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: var(--sp-2);
+}
+
+.footer-newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: var(--white);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.footer-newsletter-form input[type="email"]::placeholder { color: #7A7068; }
+.footer-newsletter-form input[type="email"]:focus { border-color: var(--primary); }
+
+.footer-hours {
+  margin-top: var(--sp-2);
+  font-size: 0.84rem;
+  color: #9A9088;
+}
+.footer-hours h5 {
+  font-size: 0.88rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.footer-hours p { margin-bottom: 2px; }
+
+.footer-bottom {
+  padding: var(--sp-2) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: #5E5650;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.footer-bottom-links a {
+  font-size: 0.82rem;
+  color: #5E5650;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-bottom-links a:hover { color: var(--primary); }
+
+/* Footer responsive */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+  .footer-newsletter-form {
+    flex-direction: column;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+/* ============================================================
+   LOGO IMAGE STYLES — circular frame with gold ring
+   ============================================================ */
+
+/* ── Shared circle mixin (applied via wrapper span) ──────── */
+.logo-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  /* Double gold-ring border: inner cream gap + outer gold */
+  box-shadow:
+    0 0 0 2px var(--cream),
+    0 0 0 4px var(--accent),
+    0 4px 16px rgba(212, 175, 55, 0.30);
+  flex-shrink: 0;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 50%;
+}
+
+/* ── Navbar logo ─────────────────────────────────────────── */
+.nav-logo {
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo .logo-circle {
+  width: 52px;
+  height: 52px;
+}
+
+.nav-logo:hover .logo-circle {
+  box-shadow:
+    0 0 0 2px var(--cream),
+    0 0 0 4px var(--primary),
+    0 6px 20px rgba(183, 110, 121, 0.35);
+  transform: scale(1.06);
+}
+
+/* Wordmark next to the circle in the navbar */
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-logo-text span {
+  font-size: 0.65rem;
+  font-weight: 400;
+  font-family: var(--font-body);
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Footer logo ─────────────────────────────────────────── */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--sp-2);
+  text-decoration: none;
+}
+
+.footer-logo .logo-circle {
+  width: 72px;
+  height: 72px;
+  /* On dark footer, swap cream gap for a dark gap so ring pops */
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.08),
+    0 0 0 4px var(--accent),
+    0 4px 20px rgba(212, 175, 55, 0.35);
+}
+
+.footer-logo:hover .logo-circle {
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.12),
+    0 0 0 4px var(--primary),
+    0 8px 28px rgba(183, 110, 121, 0.45);
+  transform: scale(1.06);
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.footer-logo-sub {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9A9088;
+}
+
+/* ── Drawer logo ─────────────────────────────────────────── */
+.drawer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.drawer-logo-link .logo-circle {
+  width: 48px;
+  height: 48px;
+}
+
+.drawer-logo-link:hover .logo-circle {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 2px var(--cream),
+    0 0 0 4px var(--primary),
+    0 4px 12px rgba(183, 110, 121, 0.3);
+}
+
+.drawer-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ── Mobile: slightly smaller nav circle ─────────────────── */
+@media (max-width: 768px) {
+  .nav-logo .logo-circle {
+    width: 44px;
+    height: 44px;
+  }
+  .nav-logo-text {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ── Mobile drawer header with logo ──────────────────────── */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--sp-2);
+  margin-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--blush-dark);
+}
+
+.drawer-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.drawer-logo-img {
+  height: 52px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  /* logo has white bg — multiply on white drawer background */
+  mix-blend-mode: multiply;
+}
+
+/* Reposition drawer-close to sit inline with logo */
+.drawer-header .drawer-close {
+  margin-bottom: 0;
+  align-self: center;
 }
