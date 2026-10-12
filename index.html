@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daphy_Designs | Nairobi's Premier Nail Art &amp; Fashion Brand</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daphy_Designs | Nairobi's Premier Nail Art & Fashion Brand" />
+  <meta property="og:description" content="Award-winning nail artistry and fashion styling in the heart of Nairobi. From classic manicures to bold Ankara-inspired designs — we celebrate Kenyan beauty." />
+  <meta property="og:image" content="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       SHARED NAVBAR
+  ════════════════════════════════════════════ -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo">💅 Daphy_Designs</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="tutorials.html">Tutorials</a></li>
+        <li>
+          <a href="shop.html">Shop
+            <span class="cart-badge" id="cart-count">0</span>
+          </a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="booking.html" class="btn-book btn-primary">Book Now</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="nav-drawer" role="dialog" aria-label="Navigation menu">
+        <button class="drawer-close" aria-label="Close menu">✕</button>
+        <ul class="drawer-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="tutorials.html">Tutorials</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="drawer-book-btn">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay"></div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ════════════════════════════════════════════
+         A. HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-inner container">
+
+        <!-- Left column -->
+        <div class="hero-content">
+          <span class="hero-location-pill">Nairobi, Kenya 🇰🇪</span>
+
+          <h1 class="hero-headline">
+            Nairobi's Home of<br />
+            <span class="gradient-text">Exquisite Nails<br />&amp; Fashion</span>
+          </h1>
+
+          <p class="hero-sub">
+            Award-winning nail artistry and fashion styling in the heart of Nairobi.
+            From classic manicures to bold Ankara-inspired designs — we celebrate Kenyan beauty.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="booking.html" class="btn btn-primary">
+              Book Appointment
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="gallery.html" class="btn btn-outline">Explore Gallery</a>
+          </div>
+
+          <div class="hero-badge" aria-label="4.9 rating with 500 plus happy clients">
+            ⭐ 4.9 &nbsp;·&nbsp; 500+ Happy Clients
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="hero-visual">
+          <!-- Decorative blob -->
+          <div class="hero-blob" aria-hidden="true">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+              <path d="M320,240 C360,290 340,370 270,390 C200,410 110,380 70,310 C30,240 60,140 130,90 C200,40 290,60 330,130 C360,180 280,190 320,240Z" fill="#B76E79" opacity="0.15"/>
+            </svg>
+          </div>
+          <img
+            src="https://images.pexels.com/photos/3997379/pexels-photo-3997379.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Kenyan woman with elegant nail art in Nairobi salon"
+            class="hero-img"
+            loading="eager"
+            width="600"
+            height="700"
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         B. TRUST BAR
+    ════════════════════════════════════════════ -->
+    <section class="trust-bar" aria-label="Brand statistics">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-number">500+</span>
+            <span class="trust-label">Happy Clients</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">5+</span>
+            <span class="trust-label">Years of Excellence</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">1,000+</span>
+            <span class="trust-label">Unique Designs</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">4.9★</span>
+            <span class="trust-label">Average Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         C. SERVICES PREVIEW
+    ════════════════════════════════════════════ -->
+    <section id="services-preview" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">What We Do</span>
+          <h2 id="services-title">Our Signature Services</h2>
+          <p class="section-sub">Indulge in a curated selection of beauty and style services tailored for the modern Kenyan woman.</p>
+        </div>
+
+        <div class="services-grid reveal">
+
+          <article class="service-card">
+            <div class="service-card-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Professional manicure service at Daphy_Designs Nairobi salon"
+                loading="lazy"
+                class="service-card-img"
+              />
+              <div class="service-card-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">💅</div>
+              <h3>Manicure</h3>
+              <p>From classic to gel, our manicure services leave your nails impeccable. Using top-tier products for long-lasting, flawless results.</p>
+              <a href="services.html" class="btn-link">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/3373716/pexels-photo-3373716.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Luxurious pedicure treatment at Kilimani beauty salon Nairobi"
+                loading="lazy"
+                class="service-card-img"
+              />
+              <div class="service-card-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">🦶</div>
+              <h3>Pedicure</h3>
+              <p>Treat your feet to a luxurious pedicure experience in our Kilimani salon. Relax with a spa soak, scrub, and a perfect polish finish.</p>
+              <a href="services.html" class="btn-link">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Fashion consulting session blending Kenyan tradition with global trends"
+                loading="lazy"
+                class="service-card-img"
+              />
+              <div class="service-card-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon" aria-hidden="true">✨</div>
+              <h3>Fashion Consulting</h3>
+              <p>Personal styling sessions that fuse Kenyan tradition with global trends. Look your best for any occasion — from boardrooms to weddings.</p>
+              <a href="services.html" class="btn-link">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-cta reveal">
+          <a href="services.html" class="btn btn-outline">View All Services &amp; Pricing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         D. FEATURED GALLERY
+    ════════════════════════════════════════════ -->
+    <section id="gallery-preview" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Portfolio</span>
+          <h2 id="gallery-title">Our Latest Work</h2>
+          <p class="section-sub">A glimpse into the artistry we bring to every appointment — from intricate nail designs to full fashion looks.</p>
+        </div>
+
+        <div class="gallery-masonry reveal" aria-label="Gallery of nail art and fashion designs">
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Ankara-inspired geometric nail art design in Nairobi"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/3065170/pexels-photo-3065170.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Elegant gel manicure with floral details at Daphy_Designs"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/205923/pexels-photo-205923.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Bold red nail art inspired by Nairobi's fashion scene"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/1603805/pexels-photo-1603805.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Bridal nail art with intricate gold accents for Kenyan wedding"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/3997989/pexels-photo-3997989.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Pastel ombre nails inspired by Mombasa coastal pastels"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="https://images.pexels.com/photos/3693904/pexels-photo-3693904.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Contemporary fashion look styled by Daphy_Designs team in Nairobi"
+              loading="lazy"
+            />
+            <div class="gallery-item-overlay">
+              <a href="booking.html" class="gallery-book-btn">Book This Look</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="section-cta reveal">
+          <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         E. TUTORIALS TEASER
+    ════════════════════════════════════════════ -->
+    <section id="tutorials-preview" aria-labelledby="tutorials-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Expert Tips</span>
+          <h2 id="tutorials-title">Learn from the Best</h2>
+          <p class="section-sub">Step-by-step tutorials from Kenya's top nail artists — master salon-quality looks from the comfort of your home.</p>
+        </div>
+
+        <div class="tutorials-grid reveal">
+
+          <article class="tutorial-card">
+            <div class="tutorial-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2536965/pexels-photo-2536965.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Ankara-inspired nail art tutorial step by step guide"
+                loading="lazy"
+              />
+              <div class="play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="tutorial-category">Nail Art</span>
+            </div>
+            <div class="tutorial-body">
+              <h3>Ankara-Inspired Nail Art Tutorial</h3>
+              <p>Recreate vibrant Ankara fabric motifs on your nails using simple tools and step-by-step guidance from our master nail artists.</p>
+              <a href="tutorials.html" class="btn-link">
+                Watch Tutorial
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="tutorial-card">
+            <div class="tutorial-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/4210372/pexels-photo-4210372.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="French manicure tutorial for perfect clean lines at home"
+                loading="lazy"
+              />
+              <div class="play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="tutorial-category">Manicure</span>
+            </div>
+            <div class="tutorial-body">
+              <h3>Perfect French Manicure at Home</h3>
+              <p>Achieve flawless crisp white tips without a salon visit. Our nail technician shares all the tricks used in our Nairobi studio.</p>
+              <a href="tutorials.html" class="btn-link">
+                Watch Tutorial
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="tutorial-card">
+            <div class="tutorial-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/775522/pexels-photo-775522.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Nairobi street style colour blocking fashion guide"
+                loading="lazy"
+              />
+              <div class="play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <span class="tutorial-category">Fashion</span>
+            </div>
+            <div class="tutorial-body">
+              <h3>Nairobi Street Style: Colour Blocking</h3>
+              <p>How to master bold colour blocking the Nairobi way — pairing vibrant Kenyan prints with contemporary silhouettes for a head-turning look.</p>
+              <a href="tutorials.html" class="btn-link">
+                Watch Tutorial
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-cta reveal">
+          <a href="tutorials.html" class="btn btn-outline">Browse All Tutorials</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         F. TRENDING IN KENYA
+    ════════════════════════════════════════════ -->
+    <section id="trending" aria-labelledby="trending-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Hot Right Now</span>
+          <h2 id="trending-title">Trending in Nairobi</h2>
+          <p class="section-sub">The looks and styles taking Nairobi's beauty and fashion scene by storm this season.</p>
+        </div>
+
+        <div class="trending-grid reveal">
+
+          <article class="trend-card">
+            <div class="trend-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/4677022/pexels-photo-4677022.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Ankara nail fusion — geometric Ankara-fabric nail art pattern"
+                loading="lazy"
+              />
+              <span class="trend-badge">#Trending</span>
+            </div>
+            <div class="trend-body">
+              <span class="trend-tag">Nail Art</span>
+              <h3>Ankara Nail Fusion</h3>
+              <p>Bold geometric patterns inspired by Ankara fabric motifs — where traditional Kenyan textile art meets modern nail design.</p>
+              <a href="gallery.html" class="btn-link">
+                See Looks
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="trend-card">
+            <div class="trend-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/2830353/pexels-photo-2830353.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Nairobi bold reds — deep crimson nail polish dominating Nairobi fashion"
+                loading="lazy"
+              />
+              <span class="trend-badge">#Trending</span>
+            </div>
+            <div class="trend-body">
+              <span class="trend-tag">Nails &amp; Style</span>
+              <h3>Nairobi Bold Reds</h3>
+              <p>Classic crimson shades dominating Nairobi's fashion scene — powerful, confident, and timelessly feminine.</p>
+              <a href="gallery.html" class="btn-link">
+                See Looks
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="trend-card">
+            <div class="trend-img-wrap">
+              <img
+                src="https://images.pexels.com/photos/1454178/pexels-photo-1454178.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Coastal pastels nail and fashion trend inspired by Mombasa coastline"
+                loading="lazy"
+              />
+              <span class="trend-badge">#Trending</span>
+            </div>
+            <div class="trend-body">
+              <span class="trend-tag">Coastal Vibes</span>
+              <h3>Coastal Pastels</h3>
+              <p>Soft hues inspired by the Mombasa coastline — lavender, mint, and sandy beiges that evoke sun, sea, and Swahili elegance.</p>
+              <a href="gallery.html" class="btn-link">
+                See Looks
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         G. TESTIMONIALS
+    ════════════════════════════════════════════ -->
+    <section id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Client Love</span>
+          <h2 id="testimonials-title">What Our Clients Say</h2>
+          <p class="section-sub">Real stories from real Nairobi women who trust us with their beauty journey.</p>
+        </div>
+
+        <div class="testimonials-grid reveal">
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>
+              <p>"Daphy_Designs transformed my nails for my wedding! The Ankara-inspired design was absolutely stunning. Every guest was asking who did my nails — I got so many compliments on my special day."</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <img
+                src="https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Wanjiku M., happy client of Daphy_Designs Nairobi"
+                loading="lazy"
+                class="testimonial-avatar"
+              />
+              <div>
+                <strong>Wanjiku M.</strong>
+                <span>Nairobi, Kenya</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>
+              <p>"Best nail salon in Nairobi, period. The spa pedicure was heavenly, and the fashion consultation helped me nail my graduation look! Walked out feeling like a queen. I recommend Daphy_Designs to everyone."</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <img
+                src="https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Achieng O., loyal Daphy_Designs client from Nairobi"
+                loading="lazy"
+                class="testimonial-avatar"
+              />
+              <div>
+                <strong>Achieng O.</strong>
+                <span>Kisumu, Kenya</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>
+              <p>"I've been coming here for 2 years. The gel manicure lasts me 3 full weeks without chipping! The team is professional, warm, and so talented. Daphy_Designs is truly Nairobi's hidden gem."</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <img
+                src="https://images.pexels.com/photos/3693904/pexels-photo-3693904.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Njeri K., long-term Daphy_Designs client from Nairobi"
+                loading="lazy"
+                class="testimonial-avatar"
+              />
+              <div>
+                <strong>Njeri K.</strong>
+                <span>Westlands, Nairobi</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         H. LOYALTY BANNER
+    ════════════════════════════════════════════ -->
+    <section class="loyalty-banner" aria-labelledby="loyalty-title">
+      <div class="container">
+        <div class="loyalty-inner reveal">
+          <div class="loyalty-icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="loyalty-content">
+            <h2 id="loyalty-title">Earn Points. Get Rewards.</h2>
+            <p>Join the Daphy Rewards program and earn <strong>1 point per KES 100</strong> spent. Redeem points for free services, exclusive products, and VIP access to new collections. Over 500 members already saving!</p>
+          </div>
+          <a href="booking.html" class="btn btn-loyalty">Join Daphy Rewards</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         I. NEWSLETTER + WHATSAPP STRIP
+    ════════════════════════════════════════════ -->
+    <section class="newsletter-strip" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="newsletter-inner reveal">
+
+          <!-- Newsletter form -->
+          <div class="newsletter-col">
+            <h3 id="newsletter-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Stay in the Loop
+            </h3>
+            <p>Join 2,000+ subscribers for nail trends, tips &amp; exclusive offers straight to your inbox.</p>
+            <form class="newsletter-form" id="newsletter-form" novalidate>
+              <div class="newsletter-input-wrap">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  aria-label="Your email address"
+                  required
+                />
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+              <p class="newsletter-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+            </form>
+          </div>
+
+          <!-- WhatsApp CTA -->
+          <div class="newsletter-col whatsapp-col">
+            <div class="whatsapp-cta-card">
+              <div class="whatsapp-icon" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <h3>Chat with Us on WhatsApp</h3>
+                <p>Get instant answers about services, prices, availability, and bookings. Our team responds within minutes.</p>
+                <a
+                  href="https://wa.me/254700000000?text=Hi%20Daphy_Designs!"
+                  class="btn btn-whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat with Daphy_Designs on WhatsApp"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       SHARED FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">💅 Daphy_Designs</a>
+          <p class="footer-tagline">Where Kenyan Elegance Meets Artistry</p>
+          <p class="footer-address">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kilimani, Nairobi, Kenya
+          </p>
+          <p class="footer-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.13a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 2.5h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.5 17l1.42 1.42"/></svg>
+            +254 700 000 000
+          </p>
+
+          <div class="footer-socials" aria-label="Social media links">
+            <!-- Instagram -->
+            <a href="https://instagram.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/254700000000" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Chat with Daphy_Designs on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Daphy_Designs on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="tutorials.html">Tutorials</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Classic Manicure</a></li>
+            <li><a href="services.html">Gel Manicure</a></li>
+            <li><a href="services.html">Nail Art</a></li>
+            <li><a href="services.html">Classic Pedicure</a></li>
+            <li><a href="services.html">Spa Pedicure</a></li>
+            <li><a href="services.html">Fashion Consulting</a></li>
+            <li><a href="services.html">Bridal Package</a></li>
+            <li><a href="services.html">Home Visits</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter + M-Pesa -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p class="footer-newsletter-sub">Get nail trends, style tips &amp; exclusive offers in your inbox.</p>
+          <form class="footer-newsletter-form" novalidate aria-label="Footer newsletter signup">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" required />
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+
+          <div class="mpesa-badge" aria-label="M-Pesa accepted">
+            <span class="mpesa-badge-icon" aria-hidden="true">
+              <!-- M-Pesa badge visual -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <span>M-Pesa Accepted</span>
+          </div>
+
+          <div class="footer-hours">
+            <h5>Opening Hours</h5>
+            <p>Mon – Sat: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 10:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2025 Daphy_Designs · Kilimani, Nairobi · All rights reserved</p>
+        <div class="footer-bottom-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       FLOATING ELEMENTS
+  ════════════════════════════════════════════ -->
+
+  <!-- WhatsApp float button -->
+  <a
+    href="https://wa.me/254700000000?text=Hi%20Daphy_Designs!"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Mobile booking bar -->
+  <div class="mobile-booking-bar" role="navigation" aria-label="Mobile quick actions">
+    <a href="booking.html" class="mobile-bar-book">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Now
+    </a>
+    <a
+      href="https://wa.me/254700000000"
+      class="mobile-bar-whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Daphy_Designs on WhatsApp"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+  </div>
+
+  <!-- Shared JS -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
